@@ -34,9 +34,7 @@
                                 <td>{{ $equipment->serial_number ?? '' }}</td>
                                 <td>{{ $equipment->model_number ?? '' }}</td>
                                 <td>{{ $equipment->created_at ?? '' }}</td>
-
-                                    <td>{{ $equipment['id'] === $valve[$index]->equipment_id ? $valve[''] : '' }}</td>
-
+                                <td>{{ $equipment->id == $valve[$index]->equipment_id ? $valve[$index]->inlet_size : '' }}</td>
                                 <td>{{ $equipment->tag_number ?? '' }}</td>
                                 <td>{{ $equipment->tag_number ?? '' }}</td>
                                 <td>{{ $equipment->tag_number ?? '' }}</td>
@@ -45,7 +43,6 @@
                             </tr>
                             {{--                            @endforeach--}}
                         @endforeach
-                        {{ dd($equipments) }}
                         {{--                            @foreach($columnsData as $key => $items)--}}
                         {{--                                @if($items->status == 1 && $key == 0)--}}
                         {{--                                    <td>yes</td>--}}
