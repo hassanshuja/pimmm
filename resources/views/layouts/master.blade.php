@@ -443,7 +443,7 @@ max-height: 450px;">
         <section class="content container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="ownerPlants" class="btn btn-primary colr-1">
+                <a href="{{ url('ownerPlants') }}" class="btn btn-primary colr-1">
                         Owner <br/> plant Classic
                     </a>
 

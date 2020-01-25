@@ -122,10 +122,10 @@ class OwnerPlantController extends Controller
 
         // $plants = Plants::where('plant_owner', $request->owner)->get();
         $plants = DB::table('plants')
-                    ->join('users', 'plants.plant_owner', '=', 'users.id')
-                    ->where('plant_owner', $request->owner)
-                    ->select("plants.*", 'users.first_name', 'users.last_name')
-                    ->get();
+            ->join('users', 'plants.plant_owner', '=', 'users.id')
+            ->where('plant_owner', $request->owner)
+            ->select("plants.*", 'users.company_name')
+            ->get();
         // $plants = DB::table('plants')
         //         ->select('plant_owner', 'location', 'area', 'account', 'universal', 'created_at', 'updated_at', 'updated_by', 'notes')
         //         ->where('plant_owner', $request->owner)->get();
@@ -203,8 +203,146 @@ class OwnerPlantController extends Controller
 
     public function ownerplantReport($owner_id, $plant_id)
     {
+        if (isset($_SESSION['id'])) {
+
+            $_SESSION['owner_id'] = $owner_id;
+            $_SESSION['plant_id'] = $plant_id;
+
+            $total_columns = DynamicColumns::all();
+
+            $user_columns = DynamicUserColumns::where('user_id', $owner_id)->where('plant_id', $plant_id)->count();
+
+            if ($user_columns <= 0) {
+                $dataArray = array();
+                $insert_columns = new DynamicUserColumns();
+                foreach ($total_columns as $key => $value) {
+                    $dataArray[] = array('id' => $value->id, 'name' => $value->column_name, 'link_id' => $value->link_id, 'status' => $value->status);
+                }
+
+                $final_array = json_encode($dataArray);
+                $insert_columns->dynamic_column_id = $final_array;
+                $insert_columns->plant_id = $plant_id;
+                $insert_columns->user_id = $owner_id;
+                $insert_columns->save();
+            }
+
+            $columnsData = DynamicUserColumns::where('user_id', $owner_id)->where('plant_id', $plant_id)->value('dynamic_column_id');
+
+            $columnsData = json_decode($columnsData);
 
 
+            $location_name = Plants::find($plant_id);
+            $users = User::where('usertype', '!=', '3')->get();
+            $equipment_types = EquipmentType::all();
+            $owners = User::where('usertype', '=', '3')->get();
+            // if (isset($_SESSION['parts'])){
+            //     $parts=$_SESSION['parts'];
+            // }else{
+            //     $parts=[];
+            // }
+            $parts = UserParts::where('report_id', $plant_id)->where('user_id', $owner_id)->get();
+            // $job=Jobs::orderBy('id', 'desc')->first();
+            // if ($job){
+            $equipments = EquipmentDetials::where('owner_id', '=', $owner_id)->where('plant_id', $plant_id)->get();
+            $valve = EquipmentsValve::where('owner_id', '=', $owner_id)->where('plant_id', $plant_id)->get();
+            $process = EquipmentProcess::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
+            $rog_rec_parts = RogParts::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
+            $test = EquipmentTest::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
+            $critical = EquipmentCritical::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
+            $cost = EquipmentCosts::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
+            $Equipmentimage = Equipmentimage::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
+            $job = Jobs::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
+            $parts_all = DB::table('all_parts')->value('columns_json');
+            $final_parts_all = json_decode($parts_all);
+            // dd(json_decode($parts_all));
+            //  dd( $parts_all, $final_parts_all);
+            // }
+            // else{
+            //     $equipments=[];
+            // }
+            $partsData = Parts::all();
+            //            $equipments=EquipmentDetials::all();
+            $data = array("parts_all" => $final_parts_all, "job" => $job, "Equipmentimage" => $Equipmentimage, "cost" => $cost, "critical" => $critical, "test" => $test, "rog_rec_parts" => $rog_rec_parts, "process" => $process, "valve" => $valve, "columnsData" => $columnsData, "location_name" => $location_name->location, "users" => $users, "equipment_types" => $equipment_types, "owners" => $owners, 'parts' => $parts, 'equipments' => $equipments, 'partsData' => $partsData);
+            // dd($data);
+
+            return view('plant-owner.report', $data);
+        } else {
+            return redirect('/login');
+        }
+    }
+
+    public function ownerplantCreateReport($owner_id, $plant_id)
+    {
+        if (isset($_SESSION['id'])) {
+            $_SESSION['owner_id'] = $owner_id;
+            $_SESSION['plant_id'] = $plant_id;
+
+            $total_columns = DynamicColumns::all();
+
+            $user_columns = DynamicUserColumns::where('user_id', $owner_id)->where('plant_id', $plant_id)->count();
+
+            if ($user_columns <= 0) {
+                $dataArray = array();
+                $insert_columns = new DynamicUserColumns();
+                foreach ($total_columns as $key => $value) {
+                    $dataArray[] = array('id' => $value->id, 'name' => $value->column_name, 'link_id' => $value->link_id, 'status' => $value->status);
+                }
+
+                $final_array = json_encode($dataArray);
+                $insert_columns->dynamic_column_id = $final_array;
+                $insert_columns->plant_id = $plant_id;
+                $insert_columns->user_id = $owner_id;
+                $insert_columns->save();
+            }
+
+            $columnsData = DynamicUserColumns::where('user_id', $owner_id)->where('plant_id', $plant_id)->value('dynamic_column_id');
+
+            $columnsData = json_decode($columnsData);
+
+
+            $location_name = Plants::find($plant_id);
+            $users = User::where('usertype', '!=', '3')->get();
+            $equipment_types = EquipmentType::all();
+            $owners = User::where('usertype', '=', '3')->get();
+            // if (isset($_SESSION['parts'])){
+            //     $parts=$_SESSION['parts'];
+            // }else{
+            //     $parts=[];
+            // }
+            $parts = UserParts::where('report_id', $plant_id)->where('user_id', $owner_id)->get();
+            $job = Jobs::orderBy('id', 'desc')->first();
+            // if ($job){
+            $equipments = EquipmentDetials::where('owner_id', '=', $owner_id)->where('plant_id', $plant_id)->first();
+//            $valve = EquipmentsValve::where('owner_id', '=', $owner_id)->where('plant_id', $plant_id)->first();
+            $valve = new EquipmentsValve();
+            $process = EquipmentProcess::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
+            $rog_rec_parts = RogParts::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
+            $test = EquipmentTest::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
+            $critical = EquipmentCritical::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
+            $cost = EquipmentCosts::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
+            $Equipmentimage = Equipmentimage::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
+            $job = Jobs::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
+            $parts_all = DB::table('all_parts')->value('columns_json');
+            $final_parts_all = json_decode($parts_all);
+            // dd(json_decode($parts_all));
+            //  dd( $parts_all, $final_parts_all);
+            // }
+            // else{
+            //     $equipments=[];
+            // }
+            $partsData = Parts::all();
+            $equipments = EquipmentDetials::all();
+            $data = array("parts_all" => $final_parts_all, "job" => $job, "Equipmentimage" => $Equipmentimage, "cost" => $cost, "critical" => $critical, "test" => $test, "rog_rec_parts" => $rog_rec_parts, "process" => $process, "valve" => $valve, "columnsData" => $columnsData, "location_name" => $location_name->location, "users" => $users, "equipment_types" => $equipment_types, "owners" => $owners, 'parts' => $parts, 'equipments' => $equipments, 'partsData' => $partsData);
+            // dd($data);
+
+            return view('plant-owner.create-report', $data);
+        } else {
+            return redirect('/login');
+        }
+    }
+
+    public function CheckownerplantCreateReport($owner_id, $plant_id)
+    {
         if (isset($_SESSION['id'])) {
             $_SESSION['owner_id'] = $owner_id;
             $_SESSION['plant_id'] = $plant_id;
@@ -265,10 +403,16 @@ class OwnerPlantController extends Controller
             //            $equipments=EquipmentDetials::all();
             $data = array("parts_all" => $final_parts_all, "job" => $job, "Equipmentimage" => $Equipmentimage, "cost" => $cost, "critical" => $critical, "test" => $test, "rog_rec_parts" => $rog_rec_parts, "process" => $process, "valve" => $valve, "columnsData" => $columnsData, "location_name" => $location_name->location, "users" => $users, "equipment_types" => $equipment_types, "owners" => $owners, 'parts' => $parts, 'equipments' => $equipments, 'partsData' => $partsData);
             // dd($data);
-            return view('plant-owner.report', $data);
+
+            return view('plant-owner.create-report', $data);
         } else {
             return redirect('/login');
         }
+    }
+
+    public function editOwnerPlantReport($owner_id, $plant_id)
+    {
+        dd('here i am');
     }
 
 
