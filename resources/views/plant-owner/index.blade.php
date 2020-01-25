@@ -1,6 +1,11 @@
 @extends('layouts.master')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<style>
+    .selected {
+        background: lightgray !important;
+    }
+</style>
 <script>
     $(document).ready(function () {
 
@@ -63,22 +68,30 @@
                             <form id="validation-form123" action="{{route('owner.store')}}" method="post">
                                 {!! csrf_field() !!}
 
-                                <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Company Name</label>
+                                        <input type="text" class="form-control" name="company_name"
+                                               placeholder="Company Name">
+
+                                    </div>
+                                </div>
+                                {{-- <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label">First Name</label>
                                         <input type="text" class="form-control" name="first_name"
                                                placeholder="last name">
 
                                     </div>
-                                </div>
-                                <div class="col-md-6">
+                                </div> --}}
+                                {{-- <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label">Last Name</label>
                                         <input type="text" class="form-control" name="last_name"
                                                placeholder="last name">
 
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label">Phone</label>
@@ -237,15 +250,15 @@
                                     <button onclick="location.href='ownerplantReport'" class="btn btn-primary" >Use Plant</button>
                                     <button onclick="location.href='ownerplantReport'" class="btn btn-primary" >Use All</button>
                                     -->
-                                    <button onclick="ownerdataID()" class="btn btn-primary">Create New Report</button>
+                                    {{-- <button onclick="ownerdataID()" class="btn btn-primary">Create New Report</button> --}}
 
                                     <!--<button onclick="location.href='ownerplantReport'" class="btn btn-primary" >View Existing Report</button>-->
-                                    <button onclick="owneralldata()" class="btn btn-primary">View Existing Report
+                                    <button onclick="owneralldata()" class="btn btn-primary">View Report
                                     </button>
 
-                                    <button onclick="userownerplantReport()" class="btn btn-primary">Use Existing
+                                    {{-- <button onclick="userownerplantReport()" class="btn btn-primary">Use Existing
                                         Report
-                                    </button>
+                                    </button> --}}
                                 </div>
                                 <div class="col-md-6" style="padding-left:0px">
                                     <h4 class="heading-purple">Owners</h4>
@@ -271,7 +284,8 @@
                                                     <tr>
                                                         <td style="display: none;">{{$owner->id}}</td>
 
-                                                        <td>{{$owner->first_name.' '.$owner->last_name}}</td>
+                                                        {{-- <td>{{$owner->first_name.' '.$owner->last_name}}</td> --}}
+                                                        <td>{{ $owner->company_name }}</td>
                                                         <td>{{$owner->email}}</td>
                                                         <td>{{$owner->notes}}</td>
                                                         @if($owner->created_by!=null)
@@ -694,26 +708,45 @@
 
         // var table = $('#example').DataTable();
 
-        // $('#example tbody').on('click', 'tr', function () {
-        //     $(this).toggleClass('selected');
+        $('#example').on('click', 'tr', function () {
+            $('#example tr.selected').removeClass('selected');
+            // $(this).toggleClass('selected');
+            
+            // if ($(this).hasClass('selected')) {
+                // alert('IF CONDITION');
+                // $(this).removeClass('selected');
+                // var row = $(this).closest("tr");
+                // alert(row.length);
 
-        //     if ($(this).hasClass('selected')) {
-        //         plantid = table.row(this).data()[0];
+                // var row = $(this).closest("tr");
+                // var plant_owner = row.find("td:eq(0)").text();
 
-        //         //$('#part').val(partid);
-        //         plants.push(plantid);
-        //         //console.log(plants);
+                // var aa = plants.find(element => element.company_name === plant_owner);
+                // var column = row.find('td');
 
+                // alert(row);
+                // alert(column);
 
-        //     } else {
-        //         plantid = table.row(this).data()[0];
-        //         var index = plants.indexOf(plantid);
-        //         plants.splice(index, 1);
-        //         // console.log(plants);
-        //         // $('#part').val(partid);
-        //     }
+                // $(this).removeClass('selected');
+                // plantid = $('#example').row(this).data()[0];
+                // plantid = $('#example').val();
+                // plantid = table.row(this).data()[0];
+                //$('#part').val(partid);
+                // plants.push(plantid);
+            // } else {
+                $(this).addClass('selected');
+                // console.log(aa.id, '==============================');
+                var row = $(this).closest("tr");
+                plantid = row.find("td:eq(0)").text();
+                // plant_id = table.row(this).data()[0];
+                alert(plantid + ' PLANT ID');
+                // var index = plants.indexOf(plantid);
+                // plants.splice(index, 1);
+                // console.log(plants);
+                // $('#part').val(partid);
+            // }
 
-        // });
+        });
 
         var table2 = $('#example2').DataTable();
 
@@ -761,8 +794,10 @@
                 /** Create rows with Plants Data **/
                 plants.forEach( (item, index) => {
                     rows = "<tr role='row'>";
-                        
-                    rows += "<td>" + item.first_name + item.last_name + "</td>" ;
+                    
+                    rows += "<td style='display: none'>"+ item.id +"</td>"
+                    rows += "<td>" + item.company_name + "</td>"
+                    // rows += "<td>" + item.first_name + item.last_name + "</td>" ;
                     rows += "<td>" + item.location + "</td>" ;
                     rows += "<td>" + item.area + "</td>" ;
                     rows += "<td>" + item.account + "</td>" ;
@@ -963,15 +998,13 @@
                 return;
 
             }
-            if (owners.length == 0) {
+            // if (owners.length == 0) {
+            if (owner.length == 0 || owner === '') {
                 alert("please select Owner");
                 return;
-
             }
 
             location.href = 'ownerplantReport/' + ownerid + '/' + plantid;
-
-
         }
     </script>
 @endsection

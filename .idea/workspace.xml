@@ -13,6 +13,9 @@
       <executable />
     </execution>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
@@ -122,7 +125,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -157,6 +160,7 @@
       <workItem from="1579523573685" duration="169000" />
       <workItem from="1579549083730" duration="857000" />
       <workItem from="1579603762660" duration="1011000" />
+      <workItem from="1579890461085" duration="14797000" />
     </task>
     <servers />
   </component>
@@ -164,21 +168,25 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="488" y="52" key="#com.intellij.ide.util.MemberChooser" timestamp="1579890855799">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="488" y="52" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1579890855799" />
     <state x="463" y="125" key="FileChooserDialogImpl" timestamp="1579549161139">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="463" y="125" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1579549161139" />
-    <state x="209" y="5" key="SettingsEditor" timestamp="1579549341266">
+    <state x="172" y="15" key="SettingsEditor" timestamp="1579924255922">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="209" y="5" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1579549341266" />
-    <state x="359" y="207" key="com.intellij.ide.util.TipDialog" timestamp="1579603891546">
+    <state x="172" y="15" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1579924255922" />
+    <state x="359" y="207" key="com.intellij.ide.util.TipDialog" timestamp="1579890461109">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="359" y="207" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1579603891546" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1579549185657">
+    <state x="359" y="207" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1579890461109" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1579901897327">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1579549185657" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1579901897327" />
   </component>
 </project>
