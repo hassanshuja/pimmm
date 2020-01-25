@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet"/>
 
     <!-- [ chat message ] end -->
 
@@ -180,7 +181,7 @@
                                         <div class="form-group">
                                             <label class="form-label">Status</label>
                                             <!--<input type="text" class="form-control" name="status" placeholder="status" >-->
-                                            <select id="drop3" name="status" class="form-control small-box">
+                                            <select id="drop3" name="status" class="form-control dropdown">
                                                 <option value="">please select</option>
                                                 <option @if(isset($equipments->status) && $equipments->status == 'Active' ) selected @endif >
                                                     Active
@@ -206,12 +207,12 @@
                                                 <option @if(isset($equipments->status) && $equipments->status == 'Transferred' ) selected @endif >
                                                     Transferred
                                                 </option>
-                                            </select><a href="#" class="small-box-a">...</a>
-                                            <div class="small-box-a">...
-                                                <div class="toolstip"><a class="edit" onclick="editPopup(3)" id="edit3">Edit</a><a
-                                                            class="delete" onclick="deletedrop(3)">Delete</a><a
-                                                            class="add" id="add3">Add</a></div>
-                                            </div>
+                                            </select>
+                                            {{--                                            <div class="small-box-a">...--}}
+                                            {{--                                                <div class="toolstip"><a class="edit" onclick="editPopup(3)" id="edit3">Edit</a><a--}}
+                                            {{--                                                            class="delete" onclick="deletedrop(3)">Delete</a><a--}}
+                                            {{--                                                            class="add" id="add3">Add</a></div>--}}
+                                            {{--                                            </div>--}}
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -7898,6 +7899,15 @@
         var recommendiation = null;
         var partStatus = null;
     </script>
+
+
+
+    <script>
+
+
+
+    </script>
+
     <script>
         function partstatuses(x) {
             partStatus = x;
