@@ -27,6 +27,7 @@ use App\Parts;
 use App\Plants;
 use App\Owner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Redirect;
 use App\UserParts;
 
@@ -124,9 +125,36 @@ class OwnerPlantReportController extends Controller
         }
     }
 
-    public function ownerplantEditReport($report_id)
+    public function ownerplantEditReport($owner_id, $plant_id, $report_id)
     {
-       return 'In Edit';
+//        if (isset($_SESSION['id'])) {
+
+        $_SESSION['owner_id'] = $owner_id;
+        $_SESSION['plant_id'] = $plant_id;
+        $_SESSION['report_id'] = $report_id;
+
+
+        $equipments = EquipmentDetials::where('owner_id', $owner_id)->where('plant_id', $plant_id)->where('id', $report_id)->first();
+        $valve = EquipmentsValve::where('owner_id', $owner_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
+//        dd($valve);
+        $cost = EquipmentCosts::where('owner_id', $owner_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
+        $process = EquipmentProcess::where('owner_id', $owner_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
+        $test = EquipmentTest::where('owner_id', $owner_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
+        $parts = RogParts::where('owner_id', $owner_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
+        $critical = EquipmentCritical::where('owner_id', $owner_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
+        $Equipmentimage = EquipmentImage::where('owner_id', $owner_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
+        $job = Jobs::where('owner_id', $owner_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
+
+        $parts_all = DB::table('all_parts')->value('columns_json');
+        $parts_all = $final_parts_all = json_decode($parts_all);
+
+        $users = User::all();
+
+//        dd($parts_all, $final_parts_all);
+
+        return view('plant-owner.updateReport', compact('users', 'general', 'valve', 'cost', 'process',
+            'test', 'parts', 'critical', 'Equipmentimage', 'job', 'parts_all', 'final_parts_all', 'equipments'));
+
     }
 
     public function ownerplantReport($owner_id, $plant_id)

@@ -262,14 +262,21 @@ class EquipmentController extends Controller
 
     public function storeNewEquipemtn(Request $request)
     {
+        $user_id = $_SESSION['owner_id'];
+        $plant_id = $_SESSION['plant_id'];
+        $report_id = $_SESSION['report_id'];
+
         if ($request->addequipment && isset($_SESSION['owner_id'])) {
-            $user_id = $_SESSION['owner_id'];
-            $plant_id = $_SESSION['plant_id'];
-//            $general = EquipmentDetials::where('owner_id', $user_id)->where('plant_id', $plant_id)->first();
-            $general = new EquipmentDetials();
-//            if (!$general) {
-//                $general = new EquipmentDetials();
-//            }
+
+//            $user_id = $_SESSION['owner_id'];
+//            $plant_id = $_SESSION['plant_id'];
+//            $report_id = $_SESSION['report_id'];
+
+            $general = EquipmentDetials::where('owner_id', $user_id)->where('plant_id', $plant_id)->where('id', $report_id)->first();
+//            $general = new EquipmentDetials();
+            if (!$general) {
+                $general = new EquipmentDetials();
+            }
             $general->tag_number = $request->tag_number;
             $general->unit_vessel = $request->unit_vessel;
             $general->name = $request->name;
@@ -299,11 +306,11 @@ class EquipmentController extends Controller
             // dd($general);
             $general->save();
 
-//            $valve = EquipmentsValve::where('owner_id', $user_id)->where('plant_id', $plant_id)->first();
-//            if (!$valve) {
-//                $valve = new EquipmentsValve();
-//            }
-            $valve = new EquipmentsValve();
+            $valve = EquipmentsValve::where('owner_id', $user_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
+            if (!$valve) {
+                $valve = new EquipmentsValve();
+            }
+
             $valve->inlet_size = $request->inlet_size1;
             $valve->inlet_rating = $request->inlet_rating1;
             $valve->inlet_facing = $request->inlet_facing1;
@@ -345,11 +352,11 @@ class EquipmentController extends Controller
             $valve->save();
 
             // still
-            $cost = new EquipmentCosts();
-//            $cost = EquipmentCosts::where('owner_id', $user_id)->where('plant_id', $plant_id)->first();
-//            if (!$cost) {
-//                $cost = new EquipmentCosts();
-//            }
+//            $cost = new EquipmentCosts();
+            $cost = EquipmentCosts::where('owner_id', $user_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
+            if (!$cost) {
+                $cost = new EquipmentCosts();
+            }
             $cost->equipment1 = $request->equipment11;
             $cost->equipment2 = $request->equipment12;
             $cost->equipment3 = $request->equipment13;
@@ -376,11 +383,11 @@ class EquipmentController extends Controller
             $cost->plant_id = $plant_id;
             $cost->save();
 
-            $process = new EquipmentProcess();
-//            $process = EquipmentProcess::where('owner_id', $user_id)->where('plant_id', $plant_id)->first();
-//            if (!$process) {
-//                $process = new EquipmentProcess();
-//            }
+//            $process = new EquipmentProcess();
+            $process = EquipmentProcess::where('owner_id', $user_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
+            if (!$process) {
+                $process = new EquipmentProcess();
+            }
             $process->set_pressure = $request->set_pressure3;
             $process->mawp = $request->mawp3;
             $process->back_pressure = $request->back_pressure3;
@@ -406,11 +413,11 @@ class EquipmentController extends Controller
             $process->plant_id = $plant_id;
             $process->save();
 
-            $test = new EquipmentTest();
-//            $test = EquipmentTest::where('owner_id', $user_id)->where('plant_id', $plant_id)->first();
-//            if (!$test) {
-//                $test = new EquipmentTest();
-//            }
+//            $test = new EquipmentTest();
+            $test = EquipmentTest::where('owner_id', $user_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
+            if (!$test) {
+                $test = new EquipmentTest();
+            }
             $test->repair_company = $request->repair_company4;
             $test->date_tested = $request->date_tested4;
             $test->assembled_by = $request->assembled_by4;
@@ -448,11 +455,11 @@ class EquipmentController extends Controller
             $test->save();
 
 
-//            $parts = RogParts::where('owner_id', $user_id)->where('plant_id', $plant_id)->first();
-//            if (!$parts) {
-//                $parts = new RogParts();
-//            }
-            $parts = new RogParts();
+            $parts = RogParts::where('owner_id', $user_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
+            if (!$parts) {
+                $parts = new RogParts();
+            }
+//            $parts = new RogParts();
             $parts->date_received = $request->date_received5;
             $parts->received_by = $request->received_by5;
             $parts->universal = $request->universal5;
@@ -478,11 +485,11 @@ class EquipmentController extends Controller
             $parts->plant_id = $plant_id;
             $parts->save();
 
-            $critical = new EquipmentCritical();
-//            $critical = EquipmentCritical::where('owner_id', $user_id)->where('plant_id', $plant_id)->first();
-//            if (!$critical) {
-//                $critical = new EquipmentCritical();
-//            }
+//            $critical = new EquipmentCritical();
+            $critical = EquipmentCritical::where('owner_id', $user_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
+            if (!$critical) {
+                $critical = new EquipmentCritical();
+            }
             $critical->measured1 = $request->measured16;
             $critical->manufactuers1 = $request->manufactuers16;
             $critical->measured2 = $request->measured26;
@@ -508,11 +515,11 @@ class EquipmentController extends Controller
             $critical->plant_id = $plant_id;
             $critical->save();
             if ($request->images != null) {
-                $Equipmentimage = new EquipmentImage();
-//                $Equipmentimage = Equipmentimage::where('owner_id', $user_id)->where('plant_id', $plant_id)->first();
-//                if (!$Equipmentimage) {
-//                    $Equipmentimage = new Equipmentimage();
-//                }
+//                $Equipmentimage = new EquipmentImage();
+                $Equipmentimage = Equipmentimage::where('owner_id', $user_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
+                if (!$Equipmentimage) {
+                    $Equipmentimage = new Equipmentimage();
+                }
                 $image = $request->images;
                 $spa = time() . $image->getClientOriginalName();
                 $image->move('uploads/files/', $spa);
@@ -531,16 +538,20 @@ class EquipmentController extends Controller
 
                 $EP->save();
             }
+            if ($_SESSION['report_id']) {
+                return redirect()->back()->with('success', 'Report Updated');
+            }
+
             return redirect()->route('ownerplantreport', [$_SESSION['owner_id'], $_SESSION['plant_id']])->with('general', $general);
         }
         if ($request->addjob && isset($_SESSION['owner_id'])) {
             $user_id = $_SESSION['owner_id'];
             $plant_id = $_SESSION['plant_id'];
-            $job = new Jobs();
-//            $job = Jobs::where('owner_id', $user_id)->where('plant_id', $plant_id)->first();
-//            if (!$job) {
-//                $job = new Jobs();
-//            }
+//            $job = new Jobs();
+            $job = Jobs::where('owner_id', $user_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
+            if (!$job) {
+                $job = new Jobs();
+            }
             $job->owner_id = $user_id;
             $job->plant_id = $plant_id;
             $job->jobnumber = $request->job_number_; //done

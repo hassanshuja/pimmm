@@ -277,6 +277,8 @@ class OwnerPlantController extends Controller
             $_SESSION['owner_id'] = $owner_id;
             $_SESSION['plant_id'] = $plant_id;
 
+            $_SESSION['report_id'] = '';
+
             $total_columns = DynamicColumns::all();
 
             $user_columns = DynamicUserColumns::where('user_id', $owner_id)->where('plant_id', $plant_id)->count();

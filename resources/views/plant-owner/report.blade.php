@@ -4035,7 +4035,7 @@
                 return;
             }
 
-            location.href = '{{ url('ownerplantReport') }}' + '/' + plantid;
+            location.href = '{{ url('ownerplantReport') }}' + '/' + ownerid + '/' + plantid + '/' + reportId;
         }
     </script>
 
