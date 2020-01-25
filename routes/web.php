@@ -31,6 +31,7 @@ Route::resource('homepage', 'HomePageController');
 Route::get('/ownerPlants', "OwnerPlantController@index");
 Route::get('/ownerPlants/{owner}/plants', 'OwnerPlantController@getPlantsOfUser');
 Route::get('/ownerplantReport/{owner}/{plant}', 'OwnerPlantController@ownerplantReport')->name('ownerplantreport');
+Route::get('/ownerplantReport/{report}', 'OwnerPlantReportController@ownerplantEditReport');
 Route::get('/ownerplantCreateReport/{owner}/{plant}', 'OwnerPlantController@ownerplantCreateReport');
 Route::get('/ownerplantAllReports/{owner}/{plant}', 'OwnerPlantController@ownerplantAllReports');
 

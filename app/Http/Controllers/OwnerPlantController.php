@@ -246,8 +246,8 @@ class OwnerPlantController extends Controller
             $equipments = EquipmentDetials::where('owner_id', '=', $owner_id)->where('plant_id', $plant_id)->get();
             $valve = EquipmentsValve::where('owner_id', '=', $owner_id)->where('plant_id', $plant_id)->get();
             $process = EquipmentProcess::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
-            $rog_rec_parts = RogParts::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
-            $test = EquipmentTest::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
+            $rog_rec_parts = RogParts::where('owner_id', $owner_id)->where('plant_id', $plant_id)->get();
+            $test = EquipmentTest::where('owner_id', $owner_id)->where('plant_id', $plant_id)->get();
             $critical = EquipmentCritical::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
             $cost = EquipmentCosts::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
             $Equipmentimage = Equipmentimage::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
