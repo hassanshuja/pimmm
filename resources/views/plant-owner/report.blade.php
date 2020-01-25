@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <button class="btn btn-primary" onclick="ownerdataID()">Create New Report</button>
-                    <button class="btn btn-primary">Edit Existing Report</button>
+                    <button class="btn btn-primary" onclick="editPlantReport()">Edit Existing Report</button>
                     <button class="btn btn-primary">View Old Report</button>
                 </div>
             </div>
@@ -30,16 +30,18 @@
                         @foreach($equipments as $index => $equipment)
                             {{--                            @foreach($valve as $val)--}}
                             <tr>
+                                <td style="display: none">{{ $equipment->id }}</td>
+                                <td>Yes</td>
                                 <td>{{ $equipment->tag_number ?? '' }}</td>
                                 <td>{{ $equipment->serial_number ?? '' }}</td>
                                 <td>{{ $equipment->model_number ?? '' }}</td>
-                                <td>{{ $equipment->created_at ?? '' }}</td>
+                                <td>{{ $equipment->id == $rog_rec_parts[$index]->equipment_id ? $rog_rec_parts[$index]->date_received : '' }}</td>
                                 <td>{{ $equipment->id == $valve[$index]->equipment_id ? $valve[$index]->inlet_size : '' }}</td>
-                                <td>{{ $equipment->tag_number ?? '' }}</td>
-                                <td>{{ $equipment->tag_number ?? '' }}</td>
-                                <td>{{ $equipment->tag_number ?? '' }}</td>
-                                <td>{{ $equipment->tag_number ?? '' }}</td>
-                                <td>{{ $equipment->tag_number ?? '' }}</td>
+                                <td>{{ $equipment->description ?? '' }}</td>
+                                <td>{{ $equipment->equipment_location ?? '' }}</td>
+                                <td>{{ $equipment->id == $test[$index]->equipment_id ? $test[$index]->date_tested : '' }}</td>
+                                <td></td>
+                                {{--                                <td>{{ $equipment->tag_number ?? '' }}</td>--}}
                             </tr>
                             {{--                            @endforeach--}}
                         @endforeach
@@ -3976,9 +3978,64 @@
 
             }
 
-            location.href = '{{ url('ownerplantCreateReport') }}' + '/' + +ownerid + '/' + plantid;
+            location.href = '{{ url('ownerplantCreateReport') }}' + '/' + ownerid + '/' + plantid;
 
+        }
+    </script>
 
+    <script>
+        var reportId = '';
+
+        $('#example23').on('click', 'tr', function () {
+            $('#example23 tr.selected').removeClass('selected');
+            // $(this).toggleClass('selected');
+
+            // if ($(this).hasClass('selected')) {
+            // alert('IF CONDITION');
+            // $(this).removeClass('selected');
+            // var row = $(this).closest("tr");
+            // alert(row.length);
+
+            // var row = $(this).closest("tr");
+            // var plant_owner = row.find("td:eq(0)").text();
+
+            // var aa = plants.find(element => element.company_name === plant_owner);
+            // var column = row.find('td');
+
+            // alert(row);
+            // alert(column);
+
+            // $(this).removeClass('selected');
+            // plantid = $('#example').row(this).data()[0];
+            // plantid = $('#example').val();
+            // plantid = table.row(this).data()[0];
+            //$('#part').val(partid);
+            // plants.push(plantid);
+            // } else {
+            $(this).addClass('selected');
+            // console.log(aa.id, '==============================');
+            var row = $(this).closest("tr");
+            reportId = row.find("td:eq(0)").text();
+            // plant_id = table.row(this).data()[0];
+            alert(reportId + ' Report ID');
+            // var index = plants.indexOf(plantid);
+            // plants.splice(index, 1);
+            // console.log(plants);
+            // $('#part').val(partid);
+            // }
+
+        });
+    </script>
+
+    <script>
+        function editPlantReport() {
+
+            if (reportId.length === 0 && reportId === '') {
+                alert("Please Select Report");
+                return;
+            }
+
+            location.href = '{{ url('ownerplantReport') }}' + '/' + plantid;
         }
     </script>
 

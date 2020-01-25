@@ -778,6 +778,7 @@
 
         function getPlantsOfUser(owner) {
             
+            // var url = 'ownerPlants/' + owner +'/plants';
             var url = 'ownerPlants/' + owner +'/plants';
             fetch(url)
             .then( (response) => {
