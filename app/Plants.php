@@ -13,6 +13,10 @@ use Illuminate\Database\Eloquent\Model;
 class Plants extends Model
 {
 protected $table="plants";
+
+protected $fillable = ['location', 'area', 'account', 'universal', 'plant_owner', 'notes', 'created_by', 'updated_by'];
+
+
     public function getCreated()
     {
         return $this->belongsTo('App\User','created_by');
