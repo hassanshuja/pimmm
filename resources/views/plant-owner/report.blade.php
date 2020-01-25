@@ -26,137 +26,155 @@
                         @endforeach
                         </thead>
                         <tbody>
-                        <tr>
-                            @foreach($columnsData as $key => $items)
-                                @if($items->status == 1 && $key == 0)
-                                    <td>yes</td>
-                                @elseif($items->status == 1 && $items->name == 'Tag Number')
-                                    <td> {{$equipments->tag_number ?? ''}} </td>
-                                @elseif($items->status == 1 && $items->name == 'Serial Number')
-                                    <td> {{$equipments->serial_number ?? ''}} </td>
-                                @elseif($items->status == 1 && $items->name == 'Model Number')
-                                    <td> {{$equipments->model_number ?? ''}} </td>
-                                @elseif($items->status == 1 && $items->name == 'Equipment Location')
-                                    <td>{{$job->location_name ?? ''}}</td>
-                                @elseif($items->status == 1)
-                                    <td></td>
 
-                            @endif
+                        @foreach($equipments as $index => $equipment)
+                            {{--                            @foreach($valve as $val)--}}
+                            <tr>
+                                <td>{{ $equipment->tag_number ?? '' }}</td>
+                                <td>{{ $equipment->serial_number ?? '' }}</td>
+                                <td>{{ $equipment->model_number ?? '' }}</td>
+                                <td>{{ $equipment->created_at ?? '' }}</td>
+
+                                    <td>{{ $equipment['id'] === $valve[$index]->equipment_id ? $valve[''] : '' }}</td>
+
+                                <td>{{ $equipment->tag_number ?? '' }}</td>
+                                <td>{{ $equipment->tag_number ?? '' }}</td>
+                                <td>{{ $equipment->tag_number ?? '' }}</td>
+                                <td>{{ $equipment->tag_number ?? '' }}</td>
+                                <td>{{ $equipment->tag_number ?? '' }}</td>
+                            </tr>
+                            {{--                            @endforeach--}}
                         @endforeach
+                        {{ dd($equipments) }}
+                        {{--                            @foreach($columnsData as $key => $items)--}}
+                        {{--                                @if($items->status == 1 && $key == 0)--}}
+                        {{--                                    <td>yes</td>--}}
+                        {{--                                @elseif($items->status == 1 && $items->name == 'Tag Number')--}}
+                        {{--                                    <td> {{ $equipment->tag_number ?? ''}} </td>--}}
+                        {{--                                @elseif($items->status == 1 && $items->name == 'Serial Number')--}}
+                        {{--                                    <td> {{$equipment->serial_number ?? ''}} </td>--}}
+                        {{--                                @elseif($items->status == 1 && $items->name == 'Model Number')--}}
+                        {{--                                    <td> {{$equipment->model_number ?? ''}} </td>--}}
+                        {{--                                @elseif($items->status == 1 && $items->name == 'Equipment Location')--}}
+                        {{--                                    <td>{{$job->location_name ?? ''}}</td>--}}
+                        {{--                                @elseif($items->status == 1)--}}
+                        {{--                                    <td></td>--}}
+                        {{--                            @endif--}}
+                        {{--                        @endforeach--}}
                         <!--    @if(!isset($_SESSION['item1']) ||$_SESSION['item1']==1)-->
 
-                            <!--        <td>yes</td>-->
-                            <!--    @endif-->
+                        <!--        <td>yes</td>-->
+                        <!--    @endif-->
                         <!--    @if(!isset($_SESSION['item2']) ||$_SESSION['item2']==1)-->
 
-                            <!--        <td></td>-->
-                            <!--    @endif-->
+                        <!--        <td></td>-->
+                        <!--    @endif-->
                         <!--    @if(!isset($_SESSION['item3']) ||$_SESSION['item3']==1)-->
 
-                            <!--        <td></td>-->
-                            <!--    @endif-->
+                        <!--        <td></td>-->
+                        <!--    @endif-->
                         <!--    @if(!isset($_SESSION['item4']) ||$_SESSION['item4']==1)-->
-                            <!--        <td></td>-->
+                        <!--        <td></td>-->
 
-                            <!--    @endif-->
+                        <!--    @endif-->
                         <!--    @if(!isset($_SESSION['item5']) ||$_SESSION['item5']==1)-->
                         <!--        <td> {{date('y-m-d')}} </td>-->
 
-                            <!--    @endif-->
+                        <!--    @endif-->
 
                         <!--    @if(!isset($_SESSION['item6']) ||$_SESSION['item6']==1)-->
 
-                            <!--        <td></td>-->
-                            <!--    @endif-->
+                        <!--        <td></td>-->
+                        <!--    @endif-->
                         <!--    @if(!isset($_SESSION['item7']) ||$_SESSION['item7']==1)-->
 
-                            <!--        <td></td>-->
-                            <!--    @endif-->
+                        <!--        <td></td>-->
+                        <!--    @endif-->
                         <!--    @if(!isset($_SESSION['item8']) ||$_SESSION['item8']==1)-->
 
                         <!--        <td>{{$location_name}}</td>-->
-                            <!--    @endif-->
+                        <!--    @endif-->
                         <!--        @if(!isset($_SESSION['item9']) ||$_SESSION['item9']==1)-->
 
-                            <!--            <td></td>-->
-                            <!--        @endif-->
+                        <!--            <td></td>-->
+                        <!--        @endif-->
                         <!--        @if(!isset($_SESSION['item10']) ||$_SESSION['item10']==1)-->
 
-                            <!--            <td></td>-->
-                            <!--        @endif-->
+                        <!--            <td></td>-->
+                        <!--        @endif-->
 
                         <!--        @if(isset($_SESSION['item11']) &&$_SESSION['item11']==1)-->
 
-                            <!--            <td></td>-->
-                            <!--        @endif-->
+                        <!--            <td></td>-->
+                        <!--        @endif-->
                         <!--        @if(isset($_SESSION['item12']) &&$_SESSION['item12']==1)-->
 
-                            <!--            <td></td>-->
-                            <!--        @endif-->
+                        <!--            <td></td>-->
+                        <!--        @endif-->
                         <!--        @if(isset($_SESSION['item13']) &&$_SESSION['item13']==1)-->
 
-                            <!--            <td></td>-->
-                            <!--        @endif-->
+                        <!--            <td></td>-->
+                        <!--        @endif-->
                         <!--        @if(isset($_SESSION['item14']) &&$_SESSION['item14']==1)-->
 
-                            <!--            <td></td>-->
-                            <!--        @endif-->
+                        <!--            <td></td>-->
+                        <!--        @endif-->
                         <!--        @if(isset($_SESSION['item15']) &&$_SESSION['item15']==1)-->
 
-                            <!--            <td></td>-->
-                            <!--        @endif-->
+                        <!--            <td></td>-->
+                        <!--        @endif-->
                         <!--        @if(isset($_SESSION['item16']) &&$_SESSION['item16']==1)-->
 
-                            <!--            <td></td>-->
-                            <!--        @endif-->
+                        <!--            <td></td>-->
+                        <!--        @endif-->
                         <!--        @if(isset($_SESSION['item17']) &&$_SESSION['item17']==1)-->
 
-                            <!--            <td></td>-->
-                            <!--        @endif-->
+                        <!--            <td></td>-->
+                        <!--        @endif-->
                         <!--        @if(isset($_SESSION['item18']) &&$_SESSION['item18']==1)-->
 
-                            <!--            <td></td>-->
-                            <!--        @endif-->
+                        <!--            <td></td>-->
+                        <!--        @endif-->
 
-                            <!--</tr>-->
+                        <!--</tr>-->
 
-                            <!--    <tr>-->
+                        <!--    <tr>-->
                         <!--        @if(!isset($_SESSION['item1']) ||$_SESSION['item1']==1)-->
 
-                            <!--            <td></td>-->
-                            <!--        @endif-->
+                        <!--            <td></td>-->
+                        <!--        @endif-->
                         <!--        @if(!isset($_SESSION['item2']) ||$_SESSION['item2']==1)-->
 
-                            <!--            <td></td>-->
-                            <!--        @endif-->
+                        <!--            <td></td>-->
+                        <!--        @endif-->
                         <!--        @if(!isset($_SESSION['item3']) ||$_SESSION['item3']==1)-->
 
-                            <!--            <td></td>-->
-                            <!--        @endif-->
+                        <!--            <td></td>-->
+                        <!--        @endif-->
                         <!--        @if(!isset($_SESSION['item4']) ||$_SESSION['item4']==1)-->
-                            <!--            <td></td>-->
+                        <!--            <td></td>-->
 
-                            <!--        @endif-->
+                        <!--        @endif-->
                         <!--        @if(!isset($_SESSION['item5']) ||$_SESSION['item5']==1)-->
 
-                            <!--            <td></td>-->
+                        <!--            <td></td>-->
 
-                            <!--        @endif-->
+                        <!--        @endif-->
 
                         <!--        @if(!isset($_SESSION['item6']) ||$_SESSION['item6']==1)-->
 
-                            <!--            <td></td>-->
-                            <!--        @endif-->
+                        <!--            <td></td>-->
+                        <!--        @endif-->
                         <!--        @if(!isset($_SESSION['item7']) ||$_SESSION['item7']==1)-->
 
-                            <!--            <td></td>-->
-                            <!--        @endif-->
+                        <!--            <td></td>-->
+                        <!--        @endif-->
                         <!--        @if(!isset($_SESSION['item8']) ||$_SESSION['item8']==1)-->
 
-                            <!--            <td></td>-->
-                            <!--        @endif-->
+                        <!--            <td></td>-->
+                        <!--        @endif-->
 
-                            <!--    </tr>-->
+                        <!--    </tr>-->
 
 
                         </tbody>
@@ -3961,7 +3979,7 @@
 
             }
 
-            location.href = '{{ url('ownerplantCreateReport') }}'+ '/' + + ownerid + '/' + plantid;
+            location.href = '{{ url('ownerplantCreateReport') }}' + '/' + +ownerid + '/' + plantid;
 
 
         }

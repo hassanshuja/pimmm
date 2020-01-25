@@ -204,6 +204,7 @@ class OwnerPlantController extends Controller
     public function ownerplantReport($owner_id, $plant_id)
     {
         if (isset($_SESSION['id'])) {
+
             $_SESSION['owner_id'] = $owner_id;
             $_SESSION['plant_id'] = $plant_id;
 
@@ -242,8 +243,8 @@ class OwnerPlantController extends Controller
             $parts = UserParts::where('report_id', $plant_id)->where('user_id', $owner_id)->get();
             // $job=Jobs::orderBy('id', 'desc')->first();
             // if ($job){
-            $equipments = EquipmentDetials::where('owner_id', '=', $owner_id)->where('plant_id', $plant_id)->first();
-            $valve = EquipmentsValve::where('owner_id', '=', $owner_id)->where('plant_id', $plant_id)->first();
+            $equipments = EquipmentDetials::where('owner_id', '=', $owner_id)->where('plant_id', $plant_id)->get();
+            $valve = EquipmentsValve::where('owner_id', '=', $owner_id)->where('plant_id', $plant_id)->get();
             $process = EquipmentProcess::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
             $rog_rec_parts = RogParts::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
             $test = EquipmentTest::where('owner_id', $owner_id)->where('plant_id', $plant_id)->first();
