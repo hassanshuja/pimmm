@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="da4f88c8-2898-4d5d-a461-a32dd30e811c" name="Default Changelist" comment="" />
+    <list default="true" id="da4f88c8-2898-4d5d-a461-a32dd30e811c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/plant-owner/updateReport.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/plant-owner/updateReport.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +19,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -160,7 +167,8 @@
       <workItem from="1579523573685" duration="169000" />
       <workItem from="1579549083730" duration="857000" />
       <workItem from="1579603762660" duration="1011000" />
-      <workItem from="1579890461085" duration="35394000" />
+      <workItem from="1579890461085" duration="39629000" />
+      <workItem from="1579965470160" duration="1071000" />
     </task>
     <servers />
   </component>
@@ -168,6 +176,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="416" y="222" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1579967516665">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="416" y="222" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1366.768@0.0.1366.768" timestamp="1579967516665" />
     <state x="488" y="52" key="#com.intellij.ide.util.MemberChooser" timestamp="1579890855799">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -184,10 +196,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="172" y="15" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1579924255922" />
-    <state x="359" y="207" key="com.intellij.ide.util.TipDialog" timestamp="1579890461109">
+    <state x="359" y="207" key="com.intellij.ide.util.TipDialog" timestamp="1579965555577">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="359" y="207" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1579890461109" />
+    <state x="359" y="207" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1579965555577" />
     <state x="339" y="172" key="run.anything.popup" timestamp="1579955395283">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
