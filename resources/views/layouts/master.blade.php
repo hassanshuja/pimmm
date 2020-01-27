@@ -383,6 +383,8 @@ max-height: 450px;">
                     {{--<li><a href="{{url('owner')}}"><i class="fa fa-users"></i> <span>View Owners</span></a></li>--}}
 
                 @elseif($_SESSION['usertype']==2)
+                    <li><a href="{{url('super/create')}}"><i class="fa fa-users"></i> <span>Add New User</span></a></li>
+                    <li><a href="{{url('usersList')}}"><i class="fa fa-users"></i> <span>View All Users</span></a></li>
                     <li><a href="{{url('owner')}}"><i class="fa fa-users"></i> <span>View Owners</span></a></li>
                     {{--          <li><a href="{{url('owner/create')}}"><i class="fa fa-users"></i> <span>Add Owner</span></a></li>--}}
                     {{--              <li><a href="{{url('equipmentType')}}"><i class="fa fa-users"></i> <span>View Equipment Type</span></a></li>--}}
@@ -395,6 +397,8 @@ max-height: 450px;">
 
 
                 @else
+                    <li><a href="{{url('super/create')}}"><i class="fa fa-users"></i> <span>Add New User</span></a></li>
+                    <li><a href="{{url('usersList')}}"><i class="fa fa-users"></i> <span>View All Users</span></a></li>
                     <li><a href="{{url('owner')}}"><i class="fa fa-users"></i> <span>View Owners</span></a></li>
                     {{--          <li><a href="{{url('owner/create')}}"><i class="fa fa-users"></i> <span>Add Owner</span></a></li>--}}
                     {{--              <li><a href="{{url('equipmentType')}}"><i class="fa fa-users"></i> <span>View Equipment Type</span></a></li>--}}

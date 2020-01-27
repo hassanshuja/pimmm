@@ -4017,7 +4017,7 @@
             var row = $(this).closest("tr");
             reportId = row.find("td:eq(0)").text();
             // plant_id = table.row(this).data()[0];
-            alert(reportId + ' Report ID');
+            // alert(reportId + ' Report ID');
             // var index = plants.indexOf(plantid);
             // plants.splice(index, 1);
             // console.log(plants);

@@ -739,7 +739,7 @@
                 var row = $(this).closest("tr");
                 plantid = row.find("td:eq(0)").text();
                 // plant_id = table.row(this).data()[0];
-                alert(plantid + ' PLANT ID');
+                // alert(plantid + ' PLANT ID');
                 // var index = plants.indexOf(plantid);
                 // plants.splice(index, 1);
                 // console.log(plants);

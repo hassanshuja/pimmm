@@ -54,7 +54,7 @@
 
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane " id="tab-data">
+                    <div class="tab-pane active" id="tab-data">
                         {!! csrf_field() !!}
 
                         <ul class="nav nav-tabs sub_geneal_tab">
@@ -8199,7 +8199,7 @@
 
             if (localStorage.getItem('tab')) {
                 if (localStorage.getItem('sub_tab') && localStorage.getItem('tab') == 'tab-datazz') {
-                    alert($('#' + localStorage.getItem('sub_tab'))[0]);
+                    // alert($('#' + localStorage.getItem('sub_tab'))[0]);
                     $('#' + localStorage.getItem('tab'))[0].click();
                     $('#' + localStorage.getItem('sub_tab'))[0].click();
                 } else {

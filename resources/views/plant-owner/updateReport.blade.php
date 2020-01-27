@@ -2736,7 +2736,7 @@
                                     </div>
                                     <div class="col-md-6" style="margin-top: 10px">
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary">New Valve</button>
+                                            <input type="submit" name="newvalve" class="btn btn-primary" value="New Valve"/>
                                         </div>
                                     </div>
                                     {{--<div class="col-md-6">--}}
@@ -8224,7 +8224,7 @@
 
             if (localStorage.getItem('tab')) {
                 if (localStorage.getItem('sub_tab') && localStorage.getItem('tab') == 'tab-datazz') {
-                    alert($('#' + localStorage.getItem('sub_tab'))[0]);
+                    // alert($('#' + localStorage.getItem('sub_tab'))[0]);
                     $('#' + localStorage.getItem('tab'))[0].click();
                     $('#' + localStorage.getItem('sub_tab'))[0].click();
                 } else {
