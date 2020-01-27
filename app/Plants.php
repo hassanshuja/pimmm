@@ -12,10 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Plants extends Model
 {
-protected $table="plants";
-
-protected $fillable = ['location', 'area', 'account', 'universal', 'plant_owner', 'notes', 'created_by', 'updated_by'];
-
+    protected $table="plants";
 
     public function getCreated()
     {

@@ -2398,7 +2398,6 @@
                                             <label class="form-label">popped@</label>
                                             <input type="text" class="form-control" name="propped5"
                                                    placeholder="popped@" value="{{ $rog_rec_parts->propped ?? '' }}">
-
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -2434,7 +2433,6 @@
                                                                                                 onclick="deletedrop(42)">Delete</a><a
                                                             class="add" id="add42">Add</a></div>
                                             </div>
-
                                         </div>
                                     </div>
 
@@ -2459,7 +2457,6 @@
                                             <label class="form-label">Nameplate</label>
                                             <select class="form-control small-box" name="nameplate5">
                                                 <option value="">please select</option>
-
                                                 <option @if(isset($rog_rec_parts->nameplate) && $rog_rec_parts->nameplate == 'Original') selected @endif >
                                                     Original
                                                 </option>
@@ -2733,7 +2730,12 @@
                                                                                                 onclick="deletedrop(45)">Delete</a><a
                                                             class="add" id="add45">Add</a></div>
                                             </div>
-
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6" style="margin-top: 10px">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">New Valve</button>
                                         </div>
                                     </div>
                                     {{--<div class="col-md-6">--}}
@@ -3338,7 +3340,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undefined Equipment</label>
+                                            <label class="form-label">Nozel Length</label>
                                             <input type="text" class="form-control" name="measured16"
                                                    placeholder="measured" value="{{$critical->measured1 ?? ''}}">
                                             <input type="text" class="form-control" name="manufactuers16"
@@ -3350,7 +3352,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undefined Equipment</label>
+                                            <label class="form-label">Noz Seat Step</label>
                                             <input type="text" class="form-control" name="measured26"
                                                    placeholder="measured" value="{{$critical->measured2 ?? ''}}">
                                             <input type="text" class="form-control" name="manufactuers26"
@@ -3363,7 +3365,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undefined Equipment</label>
+                                            <label class="form-label">Noz Seat ID/Bore</label>
                                             <input type="text" class="form-control" name="measured36"
                                                    placeholder="measured" value="{{$critical->measured3 ?? ''}}">
                                             <input type="text" class="form-control" name="manufactuers36"
@@ -3375,7 +3377,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undefined Equipment</label>
+                                            <label class="form-label">Noz Seat OD/Width</label>
                                             <input type="text" class="form-control" name="measured46"
                                                    placeholder="measured" value="{{$critical->measured4 ?? ''}}">
                                             <input type="text" class="form-control" name="manufactuers46"
@@ -3388,7 +3390,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undefined Equipment</label>
+                                            <label class="form-label">Disk Min Thickness</label>
                                             <input type="text" class="form-control" name="measured56"
                                                    placeholder="measured" value="{{$critical->measured5 ?? ''}}">
                                             <input type="text" class="form-control" name="manufactuers56"
@@ -3400,7 +3402,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undefined Equipment</label>
+                                            <label class="form-label">Disk Inside Step</label>
                                             <input type="text" class="form-control" name="measured66"
                                                    placeholder="measured" value="{{$critical->measured6 ?? ''}}">
                                             <input type="text" class="form-control" name="manufactuers66"
@@ -3413,7 +3415,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undefined Equipment</label>
+                                            <label class="form-label">Disk Outside Step</label>
                                             <input type="text" class="form-control" name="measured76"
                                                    placeholder="measured" value="{{$critical->measured7 ?? ''}}">
                                             <input type="text" class="form-control" name="manufactuers76"
@@ -3425,7 +3427,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undefined Equipment</label>
+                                            <label class="form-label">Disk Seat Step</label>
                                             <input type="text" class="form-control" name="measured86"
                                                    placeholder="measured" value="{{$critical->measured8 ?? ''}}">
                                             <input type="text" class="form-control" name="manufactuers86"
@@ -3438,7 +3440,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undefined Equipment</label>
+                                            <label class="form-label">Guide ID</label>
                                             <input type="text" class="form-control" name="measured96"
                                                    placeholder="measured" value="{{$critical->measured9 ?? ''}}">
                                             <input type="text" class="form-control" name="manufactuers96"
@@ -3450,7 +3452,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undefined Equipment</label>
+                                            <label class="form-label">Guide Clearances</label>
                                             <input type="text" class="form-control" name="measured106"
                                                    placeholder="measured" value="{{$critical->measured10 ?? ''}}">
                                             <input type="text" class="form-control" name="manufactuers106"
@@ -3470,7 +3472,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undef Equip</label>
+                                            <label class="form-label">Oxygen Cleaned</label>
                                             <input type="text" class="form-control" name="equipment11"
                                                    placeholder="measured" value="{{$cost->equipment1 ?? ''}}">
 
@@ -3479,7 +3481,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undef Equip</label>
+                                            <label class="form-label">Visual Inspection</label>
                                             <input type="text" class="form-control" name="equipment12"
                                                    placeholder="measured" value="{{$cost->equipment2 ?? ''}}">
 
@@ -3487,7 +3489,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undef Equip</label>
+                                            <label class="form-label">Psv Painted</label>
                                             <input type="text" class="form-control" name="equipment13"
                                                    placeholder="measured" value="{{$cost->equipment3 ?? ''}}">
 
@@ -3495,7 +3497,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undef Equip</label>
+                                            <label class="form-label">PSV Taped</label>
                                             <input type="text" class="form-control" name="equipment14"
                                                    placeholder="measured" value="{{$cost->equipment4 ?? ''}}">
 
@@ -3503,7 +3505,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undef Equip</label>
+                                            <label class="form-label">PSV Sealed</label>
                                             <input type="text" class="form-control" name="equipment15"
                                                    placeholder="measured" value="{{$cost->equipment5 ?? ''}}">
 
@@ -3512,7 +3514,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undef Equip</label>
+                                            <label class="form-label">PSV Complete</label>
                                             <input type="text" class="form-control" name="equipment16"
                                                    placeholder="measured" value="{{$cost->equipment6 ?? ''}}">
 
@@ -3520,7 +3522,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undef Equip</label>
+                                            <label class="form-label">Paper Work Done</label>
                                             <input type="text" class="form-control" name="equipment17"
                                                    placeholder="measured" value="{{$cost->equipment7 ?? ''}}">
 
@@ -3529,7 +3531,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undef Equip</label>
+                                            <label class="form-label">Coordintator Notified</label>
                                             <input type="text" class="form-control" name="equipment18"
                                                    placeholder="measured" value="{{$cost->equipment8 ?? ''}}">
 
@@ -3537,7 +3539,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undef Equip</label>
+                                            <label class="form-label">Stamp Repair VR</label>
                                             <input type="text" class="form-control" name="equipment19"
                                                    placeholder="measured" value="{{$cost->equipment9 ?? ''}}">
 
@@ -3547,7 +3549,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undef Equip</label>
+                                            <label class="form-label">Main Valve Test</label>
                                             <input type="text" class="form-control" name="equipment110"
                                                    placeholder="measured" value="{{$cost->equipment10 ?? ''}}">
 
@@ -3555,7 +3557,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undef Equip</label>
+                                            <label class="form-label">Pilot Valve Test</label>
                                             <input type="text" class="form-control" name="equipment111"
                                                    placeholder="measured" value="{{$cost->equipment11 ?? ''}}">
 
@@ -3563,7 +3565,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label">Undef Equip</label>
+                                            <label class="form-label">Integral Test</label>
                                             <input type="text" class="form-control" name="equipment112"
                                                    placeholder="measured" value="{{$cost->equipment12 ?? ''}}">
 

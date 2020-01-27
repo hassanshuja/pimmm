@@ -152,7 +152,7 @@ class OwnerPlantReportController extends Controller
 
 //        dd($parts_all, $final_parts_all);
 
-        return view('plant-owner.updateReport', compact('users', 'general', 'valve', 'cost', 'process',
+        return view('plant-owner.updateReport', compact('users', 'valve', 'cost', 'process',
             'test', 'parts', 'critical', 'Equipmentimage', 'job', 'parts_all', 'final_parts_all', 'equipments'));
 
     }
