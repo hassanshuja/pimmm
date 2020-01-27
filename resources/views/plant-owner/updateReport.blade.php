@@ -7,7 +7,7 @@
 
     <!-- [ Main Content ] start -->
     <div class="own-report">
-        <form action="{{ url('/storeNewEquipemtn') }}" method="post" enctype="multipart/form-data">
+        <form id="storeNewEquipemtn" action="{{ url('/storeNewEquipemtn') }}" method="post" enctype="multipart/form-data">
             {{--class="form-horizontal">--}}
             <input type="hidden" name="part" id="part">
             <div class="box">
@@ -2041,6 +2041,19 @@
 
                             </div>
                             <div class="tab-pane" id="tab-four">
+
+                                    <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <select id="get_valve" name="get_valve">
+                                                        
+                                                        <option>Select Status</option>
+                                                        <option value="2" @if ($parts->status == 2) selected @endif>Most Recent</option>
+                                                        <option value="1" @if ($parts->status == 1) selected @endif>Old Value</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                    </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -2058,7 +2071,7 @@
                                             <label class="form-label">Date Received</label>
                                             <input type="date" class="form-control" name="date_received5"
                                                    placeholder="Date Received"
-                                                   value="{{ $rog_rec_parts->date_received ?? '' }}">
+                                                   value="{{ $parts->date_received ?? '' }}">
                                         </div>
                                     </div>
                                     {{--<div class="col-md-6">--}}
@@ -2075,55 +2088,55 @@
                                             <select id="drop36" class="form-control small-box" name="received_by5">
                                                 <option value="">please select</option>
 
-                                                <option @if(isset($rog_rec_parts->received_by) &&  $rog_rec_parts->received_by == 'Chris Pierce' ) selected @endif >
+                                                <option @if(isset($parts->received_by) &&  $parts->received_by == 'Chris Pierce' ) selected @endif >
                                                     Chris Pierce
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->received_by) &&  $rog_rec_parts->received_by == 'Chris Jorven' ) selected @endif >
+                                                <option @if(isset($parts->received_by) &&  $parts->received_by == 'Chris Jorven' ) selected @endif >
                                                     Chris Jorven
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->received_by) &&  $rog_rec_parts->received_by == 'Jordan Elliott' ) selected @endif >
+                                                <option @if(isset($parts->received_by) &&  $parts->received_by == 'Jordan Elliott' ) selected @endif >
                                                     Jordan Elliott
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->received_by) &&  $rog_rec_parts->received_by == 'Uwe Helm' ) selected @endif >
+                                                <option @if(isset($parts->received_by) &&  $parts->received_by == 'Uwe Helm' ) selected @endif >
                                                     Uwe Helm
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->received_by) &&  $rog_rec_parts->received_by == 'Tyler Tindill' ) selected @endif >
+                                                <option @if(isset($parts->received_by) &&  $parts->received_by == 'Tyler Tindill' ) selected @endif >
                                                     Tyler Tindill
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->received_by) &&  $rog_rec_parts->received_by == 'Kevin Labonte' ) selected @endif >
+                                                <option @if(isset($parts->received_by) &&  $parts->received_by == 'Kevin Labonte' ) selected @endif >
                                                     Kevin Labonte
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->received_by) &&  $rog_rec_parts->received_by == 'Kristin Neuffer' ) selected @endif >
+                                                <option @if(isset($parts->received_by) &&  $parts->received_by == 'Kristin Neuffer' ) selected @endif >
                                                     Kristin Neuffer
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->received_by) &&  $rog_rec_parts->received_by == 'Logan Little' ) selected @endif >
+                                                <option @if(isset($parts->received_by) &&  $parts->received_by == 'Logan Little' ) selected @endif >
                                                     Logan Little
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->received_by) &&  $rog_rec_parts->received_by == 'Art Bilodeau' ) selected @endif >
+                                                <option @if(isset($parts->received_by) &&  $parts->received_by == 'Art Bilodeau' ) selected @endif >
                                                     Art Bilodeau
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->received_by) &&  $rog_rec_parts->received_by == 'Andrew Raw' ) selected @endif >
+                                                <option @if(isset($parts->received_by) &&  $parts->received_by == 'Andrew Raw' ) selected @endif >
                                                     Andrew Raw
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->received_by) &&  $rog_rec_parts->received_by == 'Tyler Tindill' ) selected @endif >
+                                                <option @if(isset($parts->received_by) &&  $parts->received_by == 'Tyler Tindill' ) selected @endif >
                                                     Tyler Tindill
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->received_by) &&  $rog_rec_parts->received_by == 'Kaylin Williams' ) selected @endif >
+                                                <option @if(isset($parts->received_by) &&  $parts->received_by == 'Kaylin Williams' ) selected @endif >
                                                     Kaylin Williams
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->received_by) &&  $rog_rec_parts->received_by == 'Chad Schraeder' ) selected @endif >
+                                                <option @if(isset($parts->received_by) &&  $parts->received_by == 'Chad Schraeder' ) selected @endif >
                                                     Chad Schraeder
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->received_by) &&  $rog_rec_parts->received_by == 'Chad Schraeder' ) selected @endif >
+                                                <option @if(isset($parts->received_by) &&  $parts->received_by == 'Chad Schraeder' ) selected @endif >
                                                     Ed Pimm
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->received_by) &&  $rog_rec_parts->received_by == 'Ryan Sharp' ) selected @endif >
+                                                <option @if(isset($parts->received_by) &&  $parts->received_by == 'Ryan Sharp' ) selected @endif >
                                                     Ryan Sharp
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->received_by) &&  $rog_rec_parts->received_by == 'Kelsey Vonk' ) selected @endif >
+                                                <option @if(isset($parts->received_by) &&  $parts->received_by == 'Kelsey Vonk' ) selected @endif >
                                                     Kelsey Vonk
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->received_by) &&  $rog_rec_parts->received_by == 'Braden Pimm' ) selected @endif >
+                                                <option @if(isset($parts->received_by) &&  $parts->received_by == 'Braden Pimm' ) selected @endif >
                                                     Braden Pimm
                                                 </option>
 
@@ -2144,10 +2157,10 @@
                                             <!--<input type="text" class="form-control" name="universal5" placeholder="Rec Universal" >-->
                                             <select id="drop37" class="form-control small-box" name="universal5">
                                                 <option>please select</option>
-                                                <option @if(isset($rog_rec_parts->universal) && $rog_rec_parts->universal == 'Last Service') selected @endif >
+                                                <option @if(isset($parts->universal) && $parts->universal == 'Last Service') selected @endif >
                                                     Last Service
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->universal) && $rog_rec_parts->universal == 'Unknown') selected @endif >
+                                                <option @if(isset($parts->universal) && $parts->universal == 'Unknown') selected @endif >
                                                     Unknown
                                                 </option>
                                             </select><a href="#" class="small-box-a">...</a>
@@ -2162,59 +2175,60 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="form-label">Dicmb/insp By</label>
+
                                             <!--<input type="text" class="form-control" name="dismb5"  placeholder="Dicmb insp By">-->
                                             <select id="drop38" class="form-control small-box" name="dismb5">
                                                 <option>please select</option>
 
-                                                <option @if(isset($rog_rec_parts->dismb) && $rog_rec_parts->dismb == 'Chris Pierce') selected @endif >
+                                                <option @if(isset($parts->dismb) && $parts->dismb == 'Chris Pierce') selected @endif >
                                                     Chris Pierce
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->dismb) && $rog_rec_parts->dismb == 'Chris Jorven') selected @endif >
+                                                <option @if(isset($parts->dismb) && $parts->dismb == 'Chris Jorven') selected @endif >
                                                     Chris Jorven
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->dismb) && $rog_rec_parts->dismb == 'Jordan Elliott') selected @endif >
+                                                <option @if(isset($parts->dismb) && $parts->dismb == 'Jordan Elliott') selected @endif >
                                                     Jordan Elliott
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->dismb) && $rog_rec_parts->dismb == 'Uwe Helm') selected @endif >
+                                                <option @if(isset($parts->dismb) && $parts->dismb == 'Uwe Helm') selected @endif >
                                                     Uwe Helm
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->dismb) && $rog_rec_parts->dismb == 'Tyler Tindill') selected @endif >
+                                                <option @if(isset($parts->dismb) && $parts->dismb == 'Tyler Tindill') selected @endif >
                                                     Tyler Tindill
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->dismb) && $rog_rec_parts->dismb == 'Kevin Labonte') selected @endif >
+                                                <option @if(isset($parts->dismb) && $parts->dismb == 'Kevin Labonte') selected @endif >
                                                     Kevin Labonte
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->dismb) && $rog_rec_parts->dismb == 'Kristin Neuffer') selected @endif >
+                                                <option @if(isset($parts->dismb) && $parts->dismb == 'Kristin Neuffer') selected @endif >
                                                     Kristin Neuffer
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->dismb) && $rog_rec_parts->dismb == 'Logan Little') selected @endif >
+                                                <option @if(isset($parts->dismb) && $parts->dismb == 'Logan Little') selected @endif >
                                                     Logan Little
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->dismb) && $rog_rec_parts->dismb == 'Art Bilodeau') selected @endif >
+                                                <option @if(isset($parts->dismb) && $parts->dismb == 'Art Bilodeau') selected @endif >
                                                     Art Bilodeau
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->dismb) && $rog_rec_parts->dismb == 'Andrew Raw') selected @endif >
+                                                <option @if(isset($parts->dismb) && $parts->dismb == 'Andrew Raw') selected @endif >
                                                     Andrew Raw
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->dismb) && $rog_rec_parts->dismb == 'Tyler Tindill') selected @endif >
+                                                <option @if(isset($parts->dismb) && $parts->dismb == 'Tyler Tindill') selected @endif >
                                                     Tyler Tindill
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->dismb) && $rog_rec_parts->dismb == 'Kaylin Williams') selected @endif >
+                                                <option @if(isset($parts->dismb) && $parts->dismb == 'Kaylin Williams') selected @endif >
                                                     Kaylin Williams
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->dismb) && $rog_rec_parts->dismb == 'Chad Schraeder') selected @endif >
+                                                <option @if(isset($parts->dismb) && $parts->dismb == 'Chad Schraeder') selected @endif >
                                                     Chad Schraeder
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->dismb) && $rog_rec_parts->dismb == 'Ed Pimm') selected @endif >
+                                                <option @if(isset($parts->dismb) && $parts->dismb == 'Ed Pimm') selected @endif >
                                                     Ed Pimm
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->dismb) && $rog_rec_parts->dismb == 'Ryan Sharp') selected @endif >
+                                                <option @if(isset($parts->dismb) && $parts->dismb == 'Ryan Sharp') selected @endif >
                                                     Ryan Sharp
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->dismb) && $rog_rec_parts->dismb == 'Kelsey Vonk') selected @endif >
+                                                <option @if(isset($parts->dismb) && $parts->dismb == 'Kelsey Vonk') selected @endif >
                                                     Kelsey Vonk
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->dismb) && $rog_rec_parts->dismb == 'Braden Pimm') selected @endif >
+                                                <option @if(isset($parts->dismb) && $parts->dismb == 'Braden Pimm') selected @endif >
                                                     Braden Pimm
                                                 </option>
 
@@ -2233,9 +2247,9 @@
                                         <div class="form-group">
                                             <label class="form-label">Maintenance</label><br/>
                                             <input type="radio" name="maintenance_is5" value="Scheduled"
-                                                   @if(isset($rog_rec_parts->maintenance_is) && $rog_rec_parts->maintenance_is == 'Scheduled') checked @endif>Scheduled
+                                                   @if(isset($parts->maintenance_is) && $parts->maintenance_is == 'Scheduled') checked @endif>Scheduled
                                             <input type="radio" name="maintenance_is5" value="Unscheduled"
-                                                   @if(isset($rog_rec_parts->maintenance_is) && $rog_rec_parts->maintenance_is == 'Unscheduled') checked @endif>Unscheduled
+                                                   @if(isset($parts->maintenance_is) && $parts->maintenance_is == 'Unscheduled') checked @endif>Unscheduled
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -2245,34 +2259,34 @@
                                             <select id="drop39" class="form-control small-box" name="for5">
                                                 <option value="">please select</option>
 
-                                                <option @if(isset($rog_rec_parts->for) && $rog_rec_parts->for == 'Repair as reqd') selected @endif >
+                                                <option @if(isset($parts->for) && $parts->for == 'Repair as reqd') selected @endif >
                                                     Repair as reqd
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->for) && $rog_rec_parts->for == 'Pretest and repair') selected @endif >
+                                                <option @if(isset($parts->for) && $parts->for == 'Pretest and repair') selected @endif >
                                                     Pretest and repair
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->for) && $rog_rec_parts->for == 'Test Only') selected @endif >
+                                                <option @if(isset($parts->for) && $parts->for == 'Test Only') selected @endif >
                                                     Test Only
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->for) && $rog_rec_parts->for == 'Pretest Only') selected @endif >
+                                                <option @if(isset($parts->for) && $parts->for == 'Pretest Only') selected @endif >
                                                     Pretest Only
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->for) && $rog_rec_parts->for == 'Reset') selected @endif >
+                                                <option @if(isset($parts->for) && $parts->for == 'Reset') selected @endif >
                                                     Reset
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->for) && $rog_rec_parts->for == 'Fully repair') selected @endif >
+                                                <option @if(isset($parts->for) && $parts->for == 'Fully repair') selected @endif >
                                                     Fully repair
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->for) && $rog_rec_parts->for == 'Change Pres./Reset') selected @endif >
+                                                <option @if(isset($parts->for) && $parts->for == 'Change Pres./Reset') selected @endif >
                                                     Change Pres./Reset
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->for) && $rog_rec_parts->for == 'Repair/Change Pres.') selected @endif >
+                                                <option @if(isset($parts->for) && $parts->for == 'Repair/Change Pres.') selected @endif >
                                                     Repair/Change Pres.
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->for) && $rog_rec_parts->for == 'New Valve') selected @endif >
+                                                <option @if(isset($parts->for) && $parts->for == 'New Valve') selected @endif >
                                                     New Valve
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->for) && $rog_rec_parts->for == 'Customer Inventory') selected @endif >
+                                                <option @if(isset($parts->for) && $parts->for == 'Customer Inventory') selected @endif >
                                                     Customer Inventory
                                                 </option>
                                             </select><a href="#" class="small-box-a">...</a>
@@ -2290,14 +2304,14 @@
                                         <div class="form-group">
                                             <label class="form-label">Special Cleaning Req'd</label><br/>
                                             <input type="checkbox" name="special_cleaning5" checked
-                                                   value="{{ $rog_rec_parts->special_cleaning ?? 0 }}">
+                                                   value="{{ $parts->special_cleaning ?? 0 }}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="form-label">Due Date</label>
                                             <input type="date" class="form-control" name="date5" placeholder="due date"
-                                                   value="{{ $rog_rec_parts->date ?? '' }}">
+                                                   value="{{ $parts->date ?? '' }}">
                                         </div>
                                     </div>
 
@@ -2306,9 +2320,9 @@
                                         <div class="form-group">
                                             <label class="form-label">Pretest</label><br/>
                                             <input type="radio" name="pretest5" value="performed"
-                                                   @if(isset($rog_rec_parts->pretest) && $rog_rec_parts->pretest == 'performed') checked @endif>Performed
+                                                   @if(isset($parts->pretest) && $parts->pretest == 'performed') checked @endif>Performed
                                             <input type="radio" name="pretest5" value="notperformed"
-                                                   @if(isset($rog_rec_parts->pretest) && $rog_rec_parts->pretest == 'notperformed') checked @endif>Not
+                                                   @if(isset($parts->pretest) && $parts->pretest == 'notperformed') checked @endif>Not
                                             performed
                                         </div>
                                     </div>
@@ -2319,46 +2333,46 @@
                                             <select id="drop40" class="form-control small-box" name="prepop_reason5">
                                                 <option value="">please select</option>
 
-                                                <option @if(isset($rog_rec_parts->prepop_reason) && $rog_rec_parts->prepop_reason == 'Passed') selected @endif >
+                                                <option @if(isset($parts->prepop_reason) && $parts->prepop_reason == 'Passed') selected @endif >
                                                     Passed
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prepop_reason) && $rog_rec_parts->prepop_reason == 'Failed') selected @endif >
+                                                <option @if(isset($parts->prepop_reason) && $parts->prepop_reason == 'Failed') selected @endif >
                                                     Failed
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prepop_reason) && $rog_rec_parts->prepop_reason == 'No Pop') selected @endif >
+                                                <option @if(isset($parts->prepop_reason) && $parts->prepop_reason == 'No Pop') selected @endif >
                                                     No Pop
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prepop_reason) && $rog_rec_parts->prepop_reason == 'No Simmer') selected @endif >
+                                                <option @if(isset($parts->prepop_reason) && $parts->prepop_reason == 'No Simmer') selected @endif >
                                                     No Simmer
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prepop_reason) && $rog_rec_parts->prepop_reason == 'Not requested') selected @endif >
+                                                <option @if(isset($parts->prepop_reason) && $parts->prepop_reason == 'Not requested') selected @endif >
                                                     Not requested
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prepop_reason) && $rog_rec_parts->prepop_reason == 'Excessive leakage') selected @endif >
+                                                <option @if(isset($parts->prepop_reason) && $parts->prepop_reason == 'Excessive leakage') selected @endif >
                                                     Excessive leakage
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prepop_reason) && $rog_rec_parts->prepop_reason == 'Simmer') selected @endif >
+                                                <option @if(isset($parts->prepop_reason) && $parts->prepop_reason == 'Simmer') selected @endif >
                                                     Simmer
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prepop_reason) && $rog_rec_parts->prepop_reason == 'Stuck') selected @endif >
+                                                <option @if(isset($parts->prepop_reason) && $parts->prepop_reason == 'Stuck') selected @endif >
                                                     Stuck
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prepop_reason) && $rog_rec_parts->prepop_reason == 'Full of product') selected @endif >
+                                                <option @if(isset($parts->prepop_reason) && $parts->prepop_reason == 'Full of product') selected @endif >
                                                     Full of product
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prepop_reason) && $rog_rec_parts->prepop_reason == 'Acid valve') selected @endif >
+                                                <option @if(isset($parts->prepop_reason) && $parts->prepop_reason == 'Acid valve') selected @endif >
                                                     Acid valve
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prepop_reason) && $rog_rec_parts->prepop_reason == 'Valve inoperative') selected @endif >
+                                                <option @if(isset($parts->prepop_reason) && $parts->prepop_reason == 'Valve inoperative') selected @endif >
                                                     Valve inoperative
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prepop_reason) && $rog_rec_parts->prepop_reason == 'Leaked') selected @endif >
+                                                <option @if(isset($parts->prepop_reason) && $parts->prepop_reason == 'Leaked') selected @endif >
                                                     Leaked
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prepop_reason) && $rog_rec_parts->prepop_reason == 'Request by Customer') selected @endif >
+                                                <option @if(isset($parts->prepop_reason) && $parts->prepop_reason == 'Request by Customer') selected @endif >
                                                     Request by Customer
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prepop_reason) && $rog_rec_parts->prepop_reason == 'Pressure Change') selected @endif >
+                                                <option @if(isset($parts->prepop_reason) && $parts->prepop_reason == 'Pressure Change') selected @endif >
                                                     Pressure Change
                                                 </option>
 
@@ -2378,10 +2392,10 @@
                                             <select id="drop41" class="form-control" name="prepop_reason25">
                                                 <option value="">please select</option>
 
-                                                <option @if(isset($rog_rec_parts->prepop_reason2) && $rog_rec_parts->prepop_reason2 == 'Passed') selected @endif >
+                                                <option @if(isset($parts->prepop_reason2) && $parts->prepop_reason2 == 'Passed') selected @endif >
                                                     Passed
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prepop_reason2) && $rog_rec_parts->prepop_reason2 == 'Failed') selected @endif >
+                                                <option @if(isset($parts->prepop_reason2) && $parts->prepop_reason2 == 'Failed') selected @endif >
                                                     Failed
                                                 </option>
                                             </select><a href="#" class="small-box-a">...</a>
@@ -2398,7 +2412,7 @@
                                         <div class="form-group">
                                             <label class="form-label">popped@</label>
                                             <input type="text" class="form-control" name="propped5"
-                                                   placeholder="popped@" value="{{ $rog_rec_parts->propped ?? '' }}">
+                                                   placeholder="popped@" value="{{ $parts->propped ?? '' }}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -2409,22 +2423,22 @@
                                             <select id="drop42" class="form-control small-box" name="leak_test5">
                                                 <option value="">please select</option>
 
-                                                <option @if(isset($rog_rec_parts->leak_test) && $rog_rec_parts->leak_test == 'Not performed') selected @endif >
+                                                <option @if(isset($parts->leak_test) && $parts->leak_test == 'Not performed') selected @endif >
                                                     Not performed
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->leak_test) && $rog_rec_parts->leak_test == 'Not requested') selected @endif >
+                                                <option @if(isset($parts->leak_test) && $parts->leak_test == 'Not requested') selected @endif >
                                                     Not requested
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->leak_test) && $rog_rec_parts->leak_test == 'Passed') selected @endif >
+                                                <option @if(isset($parts->leak_test) && $parts->leak_test == 'Passed') selected @endif >
                                                     Passed
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->leak_test) && $rog_rec_parts->leak_test == 'Failed') selected @endif >
+                                                <option @if(isset($parts->leak_test) && $parts->leak_test == 'Failed') selected @endif >
                                                     Failed
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->leak_test) && $rog_rec_parts->leak_test == '0') selected @endif >
+                                                <option @if(isset($parts->leak_test) && $parts->leak_test == '0') selected @endif >
                                                     0
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->leak_test) && $rog_rec_parts->leak_test == 'N/A') selected @endif >
+                                                <option @if(isset($parts->leak_test) && $parts->leak_test == 'N/A') selected @endif >
                                                     N/A
                                                 </option>
                                             </select><a href="#" class="small-box-a">...</a>
@@ -2442,7 +2456,7 @@
                                         <div class="form-group">
                                             <label class="form-label">@</label>
                                             <input type="text" class="form-control" name="option5" placeholder="@"
-                                                   value="{{ $rog_rec_parts->option ?? '' }}">
+                                                   value="{{ $parts->option ?? '' }}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -2450,7 +2464,7 @@
                                             <label class="form-label">Comp Screw Recd</label>
                                             <input type="date" class="form-control" name="comp_screw_recd5"
                                                    placeholder="Comp Screw Recd"
-                                                   value="{{ $rog_rec_parts->comp_screw_recd ?? '' }}">
+                                                   value="{{ $parts->comp_screw_recd ?? '' }}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -2458,22 +2472,22 @@
                                             <label class="form-label">Nameplate</label>
                                             <select class="form-control small-box" name="nameplate5">
                                                 <option value="">please select</option>
-                                                <option @if(isset($rog_rec_parts->nameplate) && $rog_rec_parts->nameplate == 'Original') selected @endif >
+                                                <option @if(isset($parts->nameplate) && $parts->nameplate == 'Original') selected @endif >
                                                     Original
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->nameplate) && $rog_rec_parts->nameplate == 'Original Repair') selected @endif >
+                                                <option @if(isset($parts->nameplate) && $parts->nameplate == 'Original Repair') selected @endif >
                                                     Original Repair
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->nameplate) && $rog_rec_parts->nameplate == 'Duplicate') selected @endif >
+                                                <option @if(isset($parts->nameplate) && $parts->nameplate == 'Duplicate') selected @endif >
                                                     Duplicate
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->nameplate) && $rog_rec_parts->nameplate == 'MIssing') selected @endif >
+                                                <option @if(isset($parts->nameplate) && $parts->nameplate == 'MIssing') selected @endif >
                                                     MIssing
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->nameplate) && $rog_rec_parts->nameplate == 'Illegible') selected @endif >
+                                                <option @if(isset($parts->nameplate) && $parts->nameplate == 'Illegible') selected @endif >
                                                     Illegible
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->nameplate) && $rog_rec_parts->nameplate == 'N/A') selected @endif >
+                                                <option @if(isset($parts->nameplate) && $parts->nameplate == 'N/A') selected @endif >
                                                     N/A
                                                 </option>
                                             </select>
@@ -2493,19 +2507,19 @@
                                             <select id="drop43" class="form-control small-box" name="seal5">
                                                 <option>please select</option>
 
-                                                <option @if(isset($rog_rec_parts->seal) && $rog_rec_parts->seal == 'Intact') selected @endif >
+                                                <option @if(isset($parts->seal) && $parts->seal == 'Intact') selected @endif >
                                                     Intact
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal) && $rog_rec_parts->seal == 'Broken') selected @endif >
+                                                <option @if(isset($parts->seal) && $parts->seal == 'Broken') selected @endif >
                                                     Broken
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal) && $rog_rec_parts->seal == 'Missing') selected @endif >
+                                                <option @if(isset($parts->seal) && $parts->seal == 'Missing') selected @endif >
                                                     Missing
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal) && $rog_rec_parts->seal == 'Broken and missing') selected @endif >
+                                                <option @if(isset($parts->seal) && $parts->seal == 'Broken and missing') selected @endif >
                                                     Broken and missing
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal) && $rog_rec_parts->seal == 'N/A') selected @endif >
+                                                <option @if(isset($parts->seal) && $parts->seal == 'N/A') selected @endif >
                                                     N/A
                                                 </option>
                                             </select> <a href="#" class="small-box-a">...</a></div>
@@ -2525,101 +2539,101 @@
                                             <select id="44" class="form-control small-box" name="seal_id5">
                                                 <option value="">please select</option>
 
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'PPE') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'PPE') selected @endif >
                                                     PPE
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'Petro Tech') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'Petro Tech') selected @endif >
                                                     Petro Tech
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'SPV') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'SPV') selected @endif >
                                                     SPV
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'Unfied Valve') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'Unfied Valve') selected @endif >
                                                     Unfied Valve
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'Unknown') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'Unknown') selected @endif >
                                                     Unknown
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'PCI') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'PCI') selected @endif >
                                                     PCI
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'SIE') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'SIE') selected @endif >
                                                     SIE
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'SCE') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'SCE') selected @endif >
                                                     SCE
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'CDN') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'CDN') selected @endif >
                                                     CDN
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'CVS') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'CVS') selected @endif >
                                                     CVS
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'Barber Eng.') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'Barber Eng.') selected @endif >
                                                     Barber Eng.
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'Black Gold Valve') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'Black Gold Valve') selected @endif >
                                                     Black Gold Valve
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'Factory') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'Factory') selected @endif >
                                                     Factory
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'IPV') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'IPV') selected @endif >
                                                     IPV
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'Tyco') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'Tyco') selected @endif >
                                                     Tyco
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'Techmation') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'Techmation') selected @endif >
                                                     Techmation
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'JRV') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'JRV') selected @endif >
                                                     JRV
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'PCV') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'PCV') selected @endif >
                                                     PCV
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'MVS') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'MVS') selected @endif >
                                                     MVS
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'N/A') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'N/A') selected @endif >
                                                     N/A
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'Kings') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'Kings') selected @endif >
                                                     Kings
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'HTV') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'HTV') selected @endif >
                                                     HTV
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'UVL') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'UVL') selected @endif >
                                                     UVL
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'BGV') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'BGV') selected @endif >
                                                     BGV
                                                 </option>
 
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'Nasvi') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'Nasvi') selected @endif >
                                                     Nasvi
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'OEM') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'OEM') selected @endif >
                                                     OEM
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'Cantech') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'Cantech') selected @endif >
                                                     Cantech
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'Rocky Mtn Valve') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'Rocky Mtn Valve') selected @endif >
                                                     Rocky Mtn Valve
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'ACL') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'ACL') selected @endif >
                                                     ACL
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'Valseal') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'Valseal') selected @endif >
                                                     Valseal
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'Cantech') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'Cantech') selected @endif >
                                                     Cantech
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->seal_id) && $rog_rec_parts->seal_id == 'Dalco') selected @endif >
+                                                <option @if(isset($parts->seal_id) && $parts->seal_id == 'Dalco') selected @endif >
                                                     Dalco
                                                 </option>
                                             </select><a href="#" class="small-box-a">...</a>
@@ -2640,88 +2654,88 @@
                                             <select id="45" class="form-control small-box" name="prev_repair_compant5">
                                                 <option value="">please select</option>
 
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'Dalco') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'Dalco') selected @endif >
                                                     Dalco
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'CDN') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'CDN') selected @endif >
                                                     CDN
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'CVS') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'CVS') selected @endif >
                                                     CVS
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'PPE') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'PPE') selected @endif >
                                                     PPE
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'Petro Tech') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'Petro Tech') selected @endif >
                                                     Petro Tech
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'SPV') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'SPV') selected @endif >
                                                     SPV
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'SCE') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'SCE') selected @endif >
                                                     SCE
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'Barber Eng.') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'Barber Eng.') selected @endif >
                                                     Barber Eng.
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'Black Gold Valve') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'Black Gold Valve') selected @endif >
                                                     Black Gold Valve
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'Unified Valve') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'Unified Valve') selected @endif >
                                                     Unified Valve
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'Unknown') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'Unknown') selected @endif >
                                                     Unknown
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'PTC') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'PTC') selected @endif >
                                                     PTC
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'Factory') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'Factory') selected @endif >
                                                     Factory
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'IPV') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'IPV') selected @endif >
                                                     IPV
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'JRV') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'JRV') selected @endif >
                                                     JRV
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'Kings') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'Kings') selected @endif >
                                                     Kings
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'Hi Tech Valve Inc.') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'Hi Tech Valve Inc.') selected @endif >
                                                     Hi Tech Valve Inc.
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'Tyco') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'Tyco') selected @endif >
                                                     Tyco
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'Nasvi') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'Nasvi') selected @endif >
                                                     Nasvi
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'OEM') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'OEM') selected @endif >
                                                     OEM
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'Cantech') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'Cantech') selected @endif >
                                                     Cantech
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'Rocky Mtn Valve') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'Rocky Mtn Valve') selected @endif >
                                                     Rocky Mtn Valve
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'Pwer Comm') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'Pwer Comm') selected @endif >
                                                     Pwer Comm
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'Alpha Controls') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'Alpha Controls') selected @endif >
                                                     Alpha Controls
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'Muskwa Valve') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'Muskwa Valve') selected @endif >
                                                     Muskwa Valve
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'Valseal') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'Valseal') selected @endif >
                                                     Valseal
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'PCV') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'PCV') selected @endif >
                                                     PCV
                                                 </option>
-                                                <option @if(isset($rog_rec_parts->prev_repair_compant) && $rog_rec_parts->prev_repair_compant == 'Pentair') selected @endif >
+                                                <option @if(isset($parts->prev_repair_compant) && $parts->prev_repair_compant == 'Pentair') selected @endif >
                                                     Pentair
                                                 </option>
                                             </select><a href="#" class="small-box-a">...</a>
@@ -2736,7 +2750,7 @@
                                     </div>
                                     <div class="col-md-6" style="margin-top: 10px">
                                         <div class="form-group">
-                                            <input type="submit" name="newvalve" class="btn btn-primary" value="New Valve"/>
+                                            <input type="submit" id="newvalve" name="newvalve" class="btn btn-primary" value="New Valve"/>
                                         </div>
                                     </div>
                                     {{--<div class="col-md-6">--}}
@@ -3721,7 +3735,7 @@
                             </div>
 
                         </div>
-                        <input type="submit" name="addequipment" value="Save">
+                        <input type="submit" id="addequipment" name="addequipment" value="Save">
                         <button><a href="/cancel">Cancel</a></button>
                     </div>
                     {{--<div class="tab-pane active" id="tab-report">
@@ -9031,6 +9045,16 @@
 
         });
         $(document).ready(function () {
+
+            var check_valve = $('#get_valve').val();
+            if(check_valve == 2) {
+                $('#addequipment').attr('disabled', 'disabled')
+            } 
+
+            if(check_valve == 1) {
+                $('#newvalve').attr('disabled', 'disabled')
+            } 
+
             $("a#add58").click(function () {
                 $('#hover_58').show();
             });
@@ -9042,10 +9066,32 @@
                 $('.hover_bkgr_fric').hide();
             });
 
+            // $('#addequipment').on('click', function(e){
+            //     e.preventDefault();
+                
+            //     // console.log('working')
+            // })
 
-        });
+            $('#get_valve').on('change', function(){
+                var ownerid = '{{ $_SESSION['owner_id'] }}';
+                var plantid = '{{ $_SESSION['plant_id'] }}';
+                var reportId = '{{ $_SESSION['report_id'] }}';
+               var cur_val = $(this).val()
+               if(cur_val == '1'){
+                location.href = '{{ url('ownerplantReport') }}' + '/' + ownerid + '/' + plantid + '/' + reportId + '?status=1';
+               }
+               else if(cur_val == '2'){
+                location.href = '{{ url('ownerplantReport') }}' + '/' + ownerid + '/' + plantid + '/' + reportId + '?status=2';
+                //    $('#newvalve').click();
+               }
+            })
+        }); 
+
+
+  
     </script>
 
+  
     {{--<script>--}}
     {{--$('#create').submit(--}}
     {{--function( e ) {--}}

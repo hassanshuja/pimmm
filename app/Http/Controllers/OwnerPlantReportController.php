@@ -140,7 +140,12 @@ class OwnerPlantReportController extends Controller
         $cost = EquipmentCosts::where('owner_id', $owner_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
         $process = EquipmentProcess::where('owner_id', $owner_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
         $test = EquipmentTest::where('owner_id', $owner_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
-        $parts = RogParts::where('owner_id', $owner_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
+        
+        $status = 1;
+        if(!empty($_GET['status'])){
+            $status = $_GET['status'];
+        }
+        $parts = RogParts::where('owner_id', $owner_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->where('status', $status)->first();
         $critical = EquipmentCritical::where('owner_id', $owner_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
         $Equipmentimage = EquipmentImage::where('owner_id', $owner_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();
         $job = Jobs::where('owner_id', $owner_id)->where('plant_id', $plant_id)->where('equipment_id', $report_id)->first();

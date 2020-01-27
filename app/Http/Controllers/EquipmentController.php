@@ -270,7 +270,6 @@ class EquipmentController extends Controller
 //            $user_id = $_SESSION['owner_id'];
 //            $plant_id = $_SESSION['plant_id'];
 //            $report_id = $_SESSION['report_id'];
-dd($request->all());
             $general = EquipmentDetials::where('owner_id', $user_id)->where('plant_id', $plant_id)->where('id', $report_id)->first();
 //            $general = new EquipmentDetials();
             if (!$general) {
@@ -452,22 +451,27 @@ dd($request->all());
             $test->owner_id = $user_id;
             $test->plant_id = $plant_id;
             $test->save();
-
             if($request->newvalve){
                 $parts = RogParts::where('owner_id', $user_id)->where('plant_id', $plant_id)
                 ->where('equipment_id', $report_id)
                 ->where('status', '2')
                 ->first();
                 //2 status is recent record
-                $status = 2;
+                // $status = 2;
+                // $_SESSION['get_valve'] == 2;
+                session(['get_valve' => 2]);
                 
             }else{
                 $parts = RogParts::where('owner_id', $user_id)->where('plant_id', $plant_id)
                 ->where('equipment_id', $report_id)
                 ->where('status', '1')
                 ->first();
+                // $_SESSION['get_valve'] == 1;
+                session(['get_valve' => 1]);
+
+
                 //1 status is old record
-                $status = 1;
+                // $status = 1;
             }
 
             if (!$parts) {
@@ -497,6 +501,11 @@ dd($request->all());
             $parts->equipment_id = $general->id;
             $parts->owner_id = $user_id;
             $parts->plant_id = $plant_id;
+            if($request->newvalve){
+                $parts->status = 2;
+            }else{
+                $parts->status = 1;
+            }
             $parts->save();
 
 //            $critical = new EquipmentCritical();
